@@ -12,9 +12,9 @@
     </parent>
 
     <scm>
-        <connection>scm:hg:https://bitbucket.org/sbacoss/restapigenerator</connection>
-        <developerConnection>scm:hg:https://bitbucket.org/sbacoss/restapigenerator</developerConnection>
-        <url>https://bitbucket.org/sbacoss/restapigenerator</url>
+        <connection>scm:hg:https://bitbucket.org/sbacoss/restapigenerator_release</connection>
+        <developerConnection>scm:hg:https://bitbucket.org/sbacoss/restapigenerator_release</developerConnection>
+        <url>https://bitbucket.org/sbacoss/restapigenerator_release</url>
     </scm>
         
     <licenses>

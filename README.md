@@ -1,24 +1,29 @@
-sb11-rest-api-generator
-=======================
+# Welcome to the REST API Generator Project
+The [SmarterApp](http://smarterapp.org) REST API Generator autogenerates REST API documentation.
 
-REST API Generator Information
+## License ##
+This project is licensed under the [AIR Open Source License v1.0](http://www.smarterapp.org/documents/American_Institutes_for_Research_Open_Source_Software_License.pdf).
 
-Quick setup guide
-=================================================
+## Getting Involved ##
+We would be happy to receive feedback on its capabilities, problems, or future enhancements:
+
+* For general questions or discussions, please use the [Forum](http://forum.opentestsystem.org/viewforum.php?f=16).
+* Use the **Issues** link to file bugs or enhancement requests.
+* Feel free to **Fork** this project and develop your changes!
+
+## Quick setup guide
 If:
    
-1. you are using spring mvc to produce REST webservices.
-1. testing it using spring-test's mock http requests, and
-1. Building your rest application using sb11 shared build,
+1. you are using Spring MVC to produce REST webservices.
+1. testing it using spring-test's mock HTT{ requests, and
+1. Building your rest application using the Shared Build project,
    
 You can:
    
 1. include the dependencies in your rest pom file (step 1 below) and
 1. add the interceptor to your test context.
     
-Under the hood of the API generator 
-=================================================
-
+## Under the hood of the API generator 
 Sections:
 
 1. Maven Dependencies
@@ -28,11 +33,11 @@ Sections:
 1. Web fragment
 1. API URL
 
-
-#  Maven Dependencies 
+###  Maven Dependencies 
 
 Include the following dependencies to your project with the appropriate version number:
 
+```
         <dependency>
             <groupId>org.opentestsystem.shared</groupId>
             <artifactId>rest-api-generator</artifactId>
@@ -47,9 +52,9 @@ Include the following dependencies to your project with the appropriate version 
             <type>test-jar</type>
             <scope>test</scope>
         </dependency>
-        
+```        
 
-#  Test strategy
+### Test strategy
 
 * This project assumes you are testing your REST web services by using a mock http request.
 * The API generator uses a request interceptor to save request and response data to use as examples of how to interact with the RESTful API.
@@ -67,23 +72,23 @@ To use the annotation, simply add a @ApiDocExample (`org.opentestsystem.shared.d
 * if you add @ApiDocExample(rank=1), any endpoint invoked in that unit test will appear first in the api documentation (note: equally-ranked API calls will be listed based on the order of execution). *NOTE: the rank can be any positive integer*
 * if you do not use a rank attribute, the default is 99, and the api examples will appear in order of execution along with any other unannotated unit tests for that given URL
 
-
-# Test MVC Interceptor
+### Test MVC Interceptor
 
 To configure the MVC interceptor add the following to your spring test context:
-    
+
+```    
      <mvc:interceptors>
         <bean class="org.opentestsystem.shared.docs.RequestLoggingInterceptor" />
      </mvc:interceptors>
+```
     
-    
-# Build settings
+### Build settings
 Note: If you are using the sb11 shared build, the following is already included as a build step. 
 
 The output produced from the running the tests need to be included in your war so we can view the examples in the deployed rest application.
 To accomplish this we need to add a step to our maven build.
 
-
+```
         <plugin>
                 <artifactId>maven-resources-plugin</artifactId>
                 <version>2.6</version>
@@ -110,18 +115,17 @@ To accomplish this we need to add a step to our maven build.
                     </execution>
                 </executions>
         </plugin>
-
+```
         
-# Configuration to serve the API Controller
+### Configuration to serve the API Controller
 The rest-api-generator includes a Spring MVC annotated controller and a couple JSP that will provide the API user interface for you.  
-To utilize the controller and UI, you have to add an import to a spring context file which does an annotation scan at startup.  That process will wire up a spring mvc controller that will parse the json file and display the examples on a jsp file.
+To utilize the controller and UI, you have to add an import to a Spring context file which does an annotation scan at startup.  That process will wire up a Spring MVC controller that will parse the json file and display the examples on a jsp file.
 
 The api-generator context import looks like this:
+```
+     <import resource="classpath:api-gen-context.xml" />
+```
+Note: if you are getting a 404 when browsing to the API page, check how the Spring context(s) are setup in your web.xml. 
 
-       <import resource="classpath:api-gen-context.xml" />
-
-Note: if you are getting a 404 when browsing to the api page, check how the spring context(s) are setup in your web.xml. 
-
-
-# API URLs
-You will be able to view your generated documentation describing your api if you browse to http://your-server/your-context/api
+## API URLs
+You will be able to view your generated documentation describing your API if you browse to http://your-server/your-context/api

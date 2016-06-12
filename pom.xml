@@ -12,9 +12,9 @@
     </parent>
 
     <scm>
-        <connection>scm:hg:https://bitbucket.org/sbacoss/restapigenerator_release</connection>
-        <developerConnection>scm:hg:https://bitbucket.org/sbacoss/restapigenerator_release</developerConnection>
-        <url>https://bitbucket.org/sbacoss/restapigenerator_release</url>
+        <connection>scm:git:https://github.com/SmarterApp/RestApiGenerator</connection>
+        <developerConnection>scm:git:https://github.com/SmarterApp/RestApiGenerator</developerConnection>
+        <url>https://github.com/SmarterApp/RestApiGenerator</url>
     </scm>
         
     <licenses>

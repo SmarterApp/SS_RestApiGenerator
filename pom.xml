@@ -8,7 +8,7 @@
     <parent>
         <groupId>org.opentestsystem.shared</groupId>
         <artifactId>shared-build-parent</artifactId>
-        <version>3.1.0.RELEASE</version>
+        <version>4.0.4</version>
     </parent>
 
     <scm>
@@ -74,31 +74,16 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
-            <version>${spring.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>commons-logging</groupId>
-                    <artifactId>commons-logging</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
-            <version>${spring.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-mongodb</artifactId>
-            <version>${spring-data-mongodb.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.mongodb</groupId>
-                    <artifactId>mongo-java-driver</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <dependency>
@@ -116,25 +101,11 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>${spring.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>commons-logging</groupId>
-                    <artifactId>commons-logging</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>${spring.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework</groupId>
-                    <artifactId>spring-aop</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <dependency>
@@ -147,7 +118,6 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aspects</artifactId>
-            <version>${spring.version}</version>
         </dependency>
         
         <dependency>
@@ -236,7 +206,6 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>${spring.version}</version>
             <scope>test</scope>
         </dependency>
         
@@ -280,12 +249,4 @@
             </exclusions>
         </dependency>
     </dependencies>
-    
-    <!--distributionManagement>
-       <repository>
-            <id>central</id>
-            <name>libs-releases</name>
-            <url>http://airdev.artifactoryonline.com/airdev/libs-releases-local</url>
-        </repository>
-    </distributionManagement-->
 </project>
